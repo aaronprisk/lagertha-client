@@ -1,0 +1,5 @@
+[client]
+database=lagertha
+user=register
+password=addnewhost!
+host=SERVERIP

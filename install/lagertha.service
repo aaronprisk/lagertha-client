@@ -1,0 +1,11 @@
+[Unit]
+Description=Lagertha Client
+
+[Service]
+Type=simple
+ExecStart=/usr/share/lagertha/lagboot.sh
+Restart=always
+RestartSec=5
+
+[Install]
+
