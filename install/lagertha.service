@@ -1,5 +1,6 @@
 [Unit]
 Description=Lagertha Client
+After=multi-user.target
 
 [Service]
 Type=simple
@@ -8,4 +9,4 @@ Restart=always
 RestartSec=5
 
 [Install]
-
+WantedBy=multi-user.target
