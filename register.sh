@@ -31,7 +31,7 @@ fi
 
 echo "* Connecting to Lagertha Server."
 echo "* Checking to see if host is already registered."
-newhost=$(mysql --defaults-file=/usr/share/lagertha/support/register.cnf << EOF
+newhost=$(mysql --defaults-file=/usr/share/lagertha/support/register.cnf -s -N << EOF
 use lagertha;
 SELECT hostname as "" FROM hosts WHERE mac LIKE '$mac';
 EOF
