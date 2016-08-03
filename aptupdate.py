@@ -42,7 +42,7 @@ def update():
 		print "* Following packages were updated:", pkglist
 		print "* Update task completed with no major errors."
 		status = 1
-		with open('aptlog.txt', 'a') as f:
+		with open('/var/log/lagertha.log', 'a') as f:
 			f.write(ts)
 			f.write(' - Update process completed with no major errors.\n')
 	except Exception, arg:
