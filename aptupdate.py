@@ -27,8 +27,8 @@ def update():
 
 	# We need to re-open the cache because it needs to read the package list
 	cache.open(None)
-	# Now we can do the same as 'apt-get upgrade' does
-	cache.upgrade(True)
+	# Set cache.upgrade() to cache.upgrade(True) for dist-upgrade
+	cache.upgrade()
 	#Set varaible to record packages involved in upgrade
 	pkglist = cache.get_changes()
 	if (pkglist == []):
