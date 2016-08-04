@@ -22,7 +22,7 @@ os=$(lsb_release -si)
 if [ -f /sys/class/net/eth?/address ]; then
 	echo "* Found eth interface. Pulling address.";
 	mac=$(cat /sys/class/net/eth?/address)
-if [ -f /sys/class/net/eno?/address ]; then
+elif [ -f /sys/class/net/eno?/address ]; then
 	echo "* Found eno interface. Pulling address.";
 	mac=$(cat /sys/class/net/eno?/address)
 elif [ -f /sys/class/net/enp???/address ]; then
