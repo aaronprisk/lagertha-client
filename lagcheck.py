@@ -31,7 +31,7 @@ while True:
 	try:
 		#Connect to the lagertha server
 		lagertha_connection = lagertha.connect(host=lag_server, user=lag_user, password=lag_pass, database=lag_db)
-		cursor = lagertha_connection.cursor()
+		cursor = lagertha_connection.cursor(buffered=True)
 		cursor.execute("SELECT taskid,tasktype,package FROM tasks WHERE mac = " + mac + " AND pending = 1")
 
 	except lagertha.Error as dberr:
