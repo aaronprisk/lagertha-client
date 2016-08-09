@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Lagertha Client - V0.5
+#Lagertha Client - V0.75
 import mysql.connector as lagertha
 import time
 import random
@@ -20,18 +20,38 @@ mac = config.get('CLIENT','mac')
 lag_db = config.get('SERVER','lag_db')
 lag_user = config.get('SERVER','lag_user')
 lag_pass = config.get('SERVER','lag_pass')
-check_freq = int(config.get('CLIENT','check_freq'))
 
 #Set default values
 status = "0"
 
+# Connect to Lagertha Server
+lagertha_connection = lagertha.connect(host=lag_server, user=lag_user, password=lag_pass, database=lag_db)
+cursor = lagertha_connection.cursor(buffered=True)
+
+# Update check frequency
+try:
+	cursor.execute("SELECT check_freq FROM settings WHERE settings_id = 1")
+	
+except lagertha.Error as dberr:
+	        print("* Could not pull settings from Lagertha Server.. {}".format(dberr))
+		print "* Skipping check frequency update."
+else:	
+
+		print "* Setting client check frequency.."
+		new_freq = str(cursor.fetchone()[0])
+		config.set('CLIENT','check_freq',new_freq)
+		with open('settings.conf', 'wb') as configfile:
+			config.write(configfile)
+
+# Set check frequency variable
+check_freq = int(config.get('CLIENT','check_freq'))
+
+
+# Main task check loop
 while True:
 
 
 	try:
-		#Connect to the lagertha server
-		lagertha_connection = lagertha.connect(host=lag_server, user=lag_user, password=lag_pass, database=lag_db)
-		cursor = lagertha_connection.cursor(buffered=True)
 		cursor.execute("SELECT taskid,tasktype,package FROM tasks WHERE mac = " + mac + " AND pending = 1")
 
 	except lagertha.Error as dberr:
@@ -77,6 +97,11 @@ while True:
 		nextchk= random.random()*check_freq
 		print "* Next task check in ",nextchk, "seconds."
 		time.sleep(nextchk)
+
+		#Reconnect for next check
+		lagertha_connection = lagertha.connect(host=lag_server, user=lag_user, password=lag_pass, database=lag_db)
+		cursor = lagertha_connection.cursor(buffered=True)
+
 
 
 	
