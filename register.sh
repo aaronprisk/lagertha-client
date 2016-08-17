@@ -19,15 +19,9 @@ $(service lagertha stop)
 os=$(lsb_release -si)
 
 #Find MAC address of ethernet interface
-if [ -f /sys/class/net/eth?/address ]; then
-	echo "* Found eth interface. Pulling address.";
-	mac=$(cat /sys/class/net/eth?/address)
-elif [ -f /sys/class/net/eno?/address ]; then
-	echo "* Found eno interface. Pulling address.";
-	mac=$(cat /sys/class/net/eno?/address)
-elif [ -f /sys/class/net/enp???/address ]; then
-	echo "* Found enp interface. Pulling address.";
-	mac=$(cat /sys/class/net/enp???/address)
+if [ -f /sys/class/net/e*/address ]; then
+	echo "* Found ethernet interface. Pulling address.";
+	mac=$(cat /sys/class/net/e*/address)
 fi
 
 echo "* Connecting to Lagertha Server."
