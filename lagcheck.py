@@ -40,7 +40,7 @@ else:
 		print "* Setting client check frequency.."
 		new_freq = str(cursor.fetchone()[0])
 		config.set('CLIENT','check_freq',new_freq)
-		with open('settings.conf', 'wb') as configfile:
+		with open('/usr/share/lagertha/settings.conf', 'wb') as configfile:
 			config.write(configfile)
 
 # Set check frequency variable
