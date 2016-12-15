@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # aptinstall.py
 
-def wallpaper(lag_server):
+def wallpaper(lag_server,pkgname):
 
 	import os
 	import sys
@@ -9,7 +9,7 @@ def wallpaper(lag_server):
 	import urllib
 
 	try:
-		urllib.urlretrieve("http://" + lag_server + "/walls/wall.jpg", filename="/usr/share/lagertha/wall.jpg")
+		urllib.urlretrieve("http://" + lag_server + "/" + pkgname, filename="/usr/share/lagertha/wall.jpg")
 		status = 1
 		os.system("xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/image-path --set /usr/share/lagertha/wall.jpg")
 		return status
