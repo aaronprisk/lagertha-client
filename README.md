@@ -1,5 +1,4 @@
 # Lagertha Client
-**PLEASE NOTE: This is still early in the works so it probably won't work quite yet!**
 
 The Lagertha Client is a service that allows remote systems management via Lagertha.
 
