@@ -14,7 +14,7 @@ echo "***          VERSION 1.0        ***"
 echo "***********************************"
 echo
 
-wget -q http://lagertha.westbranch.org/client/VERSION -O /tmp/LAGVERSION
+wget -q http://LAGERTHA/client/VERSION -O /tmp/LAGVERSION
 
 source /tmp/LAGVERSION
 echo "Server Version is:"
@@ -29,7 +29,7 @@ if [[ $CURVERSION < $LAGVERSION ]]; then
 	echo "* STOPPING LAGERTHA SERVICE"
 	sudo service lagertha stop
 	echo "* DOWNLOADING UPDATE"
-        wget -q http://lagertha.westbranch.org/client/client.tar.gz -O /tmp/client.tar.gz
+        wget -q http://LAGERTHA/client/client.tar.gz -O /tmp/client.tar.gz
 	echo "* EXTRACTING UPDATE"
 	tar -xf /tmp/client.tar.gz -C /usr/share/lagertha
 	echo "* SETTING FILE PERMISSIONS"
