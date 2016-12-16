@@ -82,7 +82,7 @@ while True:
 				cursor.execute(query)
 			elif task == 3:
 				print "* WALLPAPER task found.. Starting wallpaper process.."
-				status = wallpaper(lag_server)
+				status = wallpaper(lag_server,pkgname)
 				query = str("UPDATE tasks SET pending =0, status =" + str(status) + " WHERE taskid =" + str(cur_task))
 				cursor.execute(query)
 
