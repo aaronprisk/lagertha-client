@@ -38,8 +38,11 @@ if [[ $CURVERSION < $LAGVERSION ]]; then
 	sudo chmod +x /usr/share/lagertha/install/*.sh
 	echo "* UPDATE COMPLETE. RESTARTING LAGERTHA CLIENT."
 	sudo service lagertha restart
+	echo "* UPDATE TOOL WILL CLOSE IN 5 SECONDS..."
+	sleep 5
 	exit
 fi
 
-echo "No update needed. Exiting update tool."
+echo "No update needed. Exiting update tool..."
+sleep 5
 exit
