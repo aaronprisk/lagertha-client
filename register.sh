@@ -80,7 +80,7 @@ EOF
 	echo "*****************************************************"
 	mysql --defaults-file=/usr/share/lagertha/support/register.cnf << EOF
 	use lagertha;
-	INSERT INTO hosts (mac, hostname, os) VALUES ('$mac', '$newhost', '$os');
+	INSERT INTO hosts (mac, hostname, os, details) VALUES ('$mac', '$newhost', '$os', 'Registered via Client Tool');
 EOF
 	echo "Lagertha Client setup is complete!"
 	#Press a key to reboot and finish setup
