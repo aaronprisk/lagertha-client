@@ -19,7 +19,7 @@ fi
 echo "*Creating Lagertha Client Directory"
 mkdir /usr/share/lagertha
 echo "*Copying Lagertha Scripts"
-cp * /usr/share/lagertha/
+cp * /usr/share/lagertha/ > /dev/null
 echo "*Copying service file"
 cp install/lagertha.service /lib/systemd/system/
 echo "Enter IP Address of Lagertha Server: "
