@@ -4,7 +4,7 @@ The Lagertha Client is a service that allows remote systems management via Lager
 
 Lagertha consists of two components:
 
->**Lagertha Server** - Creates manages tasks for Lagertha connected Clients
+>**Lagertha Server** - Creates and manages tasks for Lagertha connected Clients
 
 >**Lagertha Client** - Service that runs on client devices and processes tasks
 
