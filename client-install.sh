@@ -19,7 +19,7 @@ fi
 echo "*Creating Lagertha Client Directory"
 mkdir /usr/share/lagertha
 echo "*Copying Lagertha Scripts"
-cp * /usr/share/lagertha/ > /dev/null
+cp -r * /usr/share/lagertha/ > /dev/null
 echo "*Copying service file"
 cp install/lagertha.service /lib/systemd/system/
 echo "Enter IP Address of Lagertha Server: "
@@ -28,5 +28,7 @@ sudo sed -i "s/SERVERIP/$lagip/g" /usr/share/lagertha/settings.conf
 sudo sed -i "s/SERVERIP/$lagip/g" /usr/share/lagertha/support/register.cnf
 echo "*Registering service"
 systemctl daemon-reload
+echo "------------------------------------------------------------"
 echo "*Lagertha Service is now installed."
-echo "*Please run Lagertha Client Registration to complete setup -- sudo /usr/share/lagertha/register.sh"
+echo "*Please run Lagertha Client Registration to complete setup:" 
+echo "sudo /usr/share/lagertha/register.sh"
