@@ -28,6 +28,7 @@ sudo sed -i "s/SERVERIP/$lagip/g" /usr/share/lagertha/settings.conf
 sudo sed -i "s/SERVERIP/$lagip/g" /usr/share/lagertha/support/register.cnf
 echo "*Registering service"
 systemctl daemon-reload
+systemctl enable lagertha
 echo "------------------------------------------------------------"
 echo "*Lagertha Service is now installed."
 echo "*Please run Lagertha Client Registration to complete setup:" 
