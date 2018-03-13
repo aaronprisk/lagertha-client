@@ -16,7 +16,7 @@ echo "* Stopping Lagertha Service."
 $(service lagertha stop)
 
 # Checking distro
-os=$(lsb_release -si)
+os=$(lsb_release -sd)
 
 #Find MAC address of ethernet interface
 if [ -f /sys/class/net/e*/address ]; then
