@@ -14,7 +14,7 @@ Lagertha consists of two components:
 These steps are for installing Lagertha Client on an Ubuntu 16.04.3 box.
 Install required python dependencies
 ```
-$ sudo apt-get install git python-apt python-mysql.connector python-configparser python-wget 
+$ sudo apt-get install git mysql-client python-apt python-mysql.connector python-configparser python-wget 
 ```
 Clone Lagertha Client to local system
 ```
